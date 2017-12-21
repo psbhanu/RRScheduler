@@ -95,7 +95,7 @@ void RRScheduler::display(int n)
  {
     string tab = "";
     cout << "\n\n-------------------TABLE----------------------------------\n";
-    cout << std::setw(10) << "\nProcess" << std::setw(10) << "AT" << std::setw(10) << "BT" << std::setw(10) << "FT" << std::setw(10) << "TAT" << std::setw(10) << "WT";
+    cout << std::setw(10) << "\nProcess" << std::setw(5) << "AT" << std::setw(10) << "BT" << std::setw(10) << "FT" << std::setw(10) << "TAT" << std::setw(10) << "WT";
     
     int i;
     for (i = 1; i <= n; i++)
