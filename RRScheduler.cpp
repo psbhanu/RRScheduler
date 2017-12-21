@@ -12,7 +12,14 @@
 RRScheduler::RRScheduler() {
 }
 
-int RRScheduler::onExecute() {
+int RRScheduler::execute() {
+    int i, n, ts, ch, j, x;
+    p[0].tat = 0;
+    p[0].wt = 0;
+    n = accept(ch);
+    ganttrr(n);
+    turnwait(n);
+    display(n);
     return 0;
 }
 
