@@ -92,13 +92,13 @@ void RRScheduler::turnwait(int n) {
 
 void RRScheduler::display(int n)
  {
-    string tab = "          ";
+    string tab = "";
     cout << "\n\n-------------------TABLE----------------------------------\n";
-    cout << "\nProcess     " << "AT" << tab << "BT" << tab << "FT" << tab << "TAT" << tab << "WT";
+    cout << setw(10) << "\nProcess     " << "AT" << tab << "BT" << tab << "FT" << tab << "TAT" << tab << "WT";
     
     int i;
     for (i = 1; i <= n; i++)
-        cout << "\nP"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << "t" << tab << p[i].wt << "t";
+        cout << "\nP"<< (int) p[i].id << tab << (int) p[i].at << tab << (int) p[i].bt << tab << (int) p[i].ft << tab << (float) p[i].tat << "t" << tab << (float) p[i].wt << "t";
     
     cout << "\n-----------------------------------------------------------";
     
