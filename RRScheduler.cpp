@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-
+#include <string>
 #include </home/win/NetBeansProjects/RRSchedular/RRScheduler.h>
 
 RRScheduler::RRScheduler() {
@@ -20,19 +20,19 @@ int RRScheduler::accept(int ch) {
     //%c i want char value 
     int i, n;
     cout"enter the number of the process: ";
-    cin>>"%d:">> &n;
+    cin>>n;
     if (n == 0) {
-        cin<<"invalid no.of process";
+        cout<<"invalid no.of process";
         exit(1);
     }
     for (i = 1; i <= n; i++) {
         cout<<"enter the arrival time for process p%d: "<< i;
-        cin>>"%d">> &p[i].at;
+        cin>>p[i].at;
         p[i].id = i;
     }
     for (i = 1; i <= n; i++) {
         cout<<"enter the burst time for process p%d: "<< i;
-        cin<<"%d"<< &p[i].bt;
+        cin<<p[i].bt;
     }
     for (i = 1; i <= n; i++) {
         p1[i] = p[i];
@@ -91,15 +91,17 @@ void RRScheduler::turnwait(int n) {
 
 void RRScheduler::display(int n)
  {
-    
+    string tab = "          ";
     cout << "\n\n-------------------TABLE----------------------------------\n";
+    cout<<"\nProcess" << tab << "AT" << tab << "BT" << tab << "FT" << tab << "TAT" << tab << "WT";
     
-   cout<<"\nProcess  tA   BT    FT          TAT                  WT";
     int i;
     for (i = 1; i <= n; i++)
-        cout<<"\nP%d       %d    %d     %d          %ft         %f"<< p[i].id<< p[i].at<<p[i].bt<< p[i].ft<< p[i].tat<< p[i].wt;
+        cout<<"\nP"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << tab << p[i].wt;
+    
     cout << "\n-----------------------------------------------------------";
-    cout<<"\nAverage Turn Around Time: %f"<< p[0].tat;
- cout<<"\nAverage Waiting Time: %f", p[0].wt;
+    
+    cout<<"\nAverage Turn Around Time: " << p[0].tat;
+    cout<<"\nAverage Waiting Time: " << p[0].wt;
 }
 
