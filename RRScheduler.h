@@ -23,7 +23,7 @@ typedef struct process {
 class RRScheduler {
 public:
     RRScheduler();
-    int onExecute();
+    int execute();
 
     process p[10], p1[10], temp;
     queue<int> q1;
