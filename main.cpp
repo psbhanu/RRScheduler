@@ -15,21 +15,21 @@
 
 
 
-#include "RRScheduler.h"
+//#include "RRScheduler.h"
 
 using namespace std;
 
 
 int main() {
-    int i, n, ts, ch, j, x;
+    //int i, n, ts, ch, j, x;
     RRScheduler scheduler;
-    
-    scheduler.p[0].tat = 0;
-    scheduler.p[0].wt = 0;
-    n =scheduler.accept(ch);
-    scheduler.ganttrr(n);
-    scheduler.turnwait(n);
-     scheduler.display(n);
+    scheduler.execute();
+    //scheduler.p[0].tat = 0;
+    //scheduler.p[0].wt = 0;
+    //n =scheduler.accept(ch);
+    //scheduler.ganttrr(n);
+    //scheduler.turnwait(n);
+    //scheduler.display(n);
     
     return 0;
 }
