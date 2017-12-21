@@ -98,7 +98,7 @@ void RRScheduler::display(int n)
     
     int i;
     for (i = 1; i <= n; i++)
-        cout << "\nP"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << tab << p[i].wt;
+        cout << "\nP"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << "t" << tab << p[i].wt << "t";
     
     cout << "\n-----------------------------------------------------------";
     
