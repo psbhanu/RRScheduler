@@ -94,11 +94,11 @@ void RRScheduler::display(int n)
  {
     string tab = "          ";
     cout << "\n\n-------------------TABLE----------------------------------\n";
-    cout << "\nProcess" << tab << "AT" << tab << "BT" << tab << "FT" << tab << "TAT" << tab << "WT";
+    cout << "\nProcess     " << "AT" << tab << "BT" << tab << "FT" << tab << "TAT" << tab << "WT";
     
     int i;
     for (i = 1; i <= n; i++)
-        cout << "\nP\t"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << tab << p[i].wt;
+        cout << "\nP"<< p[i].id << tab << p[i].at << tab << p[i].bt << tab << p[i].ft << tab << p[i].tat << tab << p[i].wt;
     
     cout << "\n-----------------------------------------------------------";
     
