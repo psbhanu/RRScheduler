@@ -14,12 +14,12 @@ RRScheduler::RRScheduler() {
 
 int RRScheduler::execute() {
     int i, n, ts, ch, j, x;
-    RRScheduler::p[0].tat = 0;
-    RRScheduler::p[0].wt = 0;
-    n = RRScheduler::accept(ch);
-    RRScheduler::ganttrr(n);
-    RRScheduler::turnwait(n);
-    RRScheduler::display(n);
+    this->p[0].tat = 0;
+    this->p[0].wt = 0;
+    n = this->accept(ch);
+    this->ganttrr(n);
+    this->turnwait(n);
+    this->display(n);
     return 0;
 }
 
