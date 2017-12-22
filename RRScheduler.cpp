@@ -14,8 +14,8 @@ RRScheduler::RRScheduler() {
 
 int RRScheduler::execute() {
     int i, n, ts, ch, j, x;
-    p[0].tat = 0;
-    p[0].wt = 0;
+    RRScheduler::p[0].tat = 0;
+    RRScheduler::p[0].wt = 0;
     n = accept(ch);
     ganttrr(n);
     turnwait(n);
