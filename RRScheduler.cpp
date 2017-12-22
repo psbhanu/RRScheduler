@@ -56,11 +56,11 @@ void RRScheduler::ganttrr(int n) {
     cout << "enter time slice: ";
     cin >> ts;
     for (i = 1; i <= n && this->p1[i].at <= nextval; i++)
-        this->q1[.push(this->p1[i].id);
+        this->q1.push(this->p1[i].id);
 
-    while (!this->q1[.empty()) {
-        m = this->q1[.front();
-        this->q1[.pop();
+    while (!this->q1.empty()) {
+        m = this->q1.front();
+        this->q1.pop();
 
         if (this->p1[m].bt >= ts)
             nextval = nextval + ts;
@@ -71,12 +71,12 @@ void RRScheduler::ganttrr(int n) {
         else
             this->p1[m].bt = 0;
         while (i <= n && this->p1[i].at <= nextval) {
-            this->q1[.push(this->p1[i].id);
+            this->q1.push(this->p1[i].id);
             i++;
         }
 
         if (this->p1[m].bt > 0)
-            this->q1[.push(m);
+            this->q1.push(m);
         if (this->p1[m].bt <= 0)
             this->p[m].ft = nextval;
     }
