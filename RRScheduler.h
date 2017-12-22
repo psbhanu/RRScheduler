@@ -21,13 +21,12 @@ typedef struct process {
 }process;
 
 class RRScheduler {
+    static process p[10], p1[10], temp;
+    static queue<int> q1;
+    
 public:
     RRScheduler();
     int execute();
-
-    process p[10], p1[10], temp;
-    queue<int> q1;
-
     int accept(int ch);
     void turnwait(int n);
     void display(int n);
