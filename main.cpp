@@ -11,8 +11,8 @@ using namespace std;
 
 int main() {
     //int i, n, ts, ch, j, x;
-    RRScheduler scheduler;
-    scheduler.execute();
+    //RRScheduler scheduler;
+    RRScheduler::execute();
     //scheduler.p[0].tat = 0;
     //scheduler.p[0].wt = 0;
     //n =scheduler.accept(ch);
