@@ -97,7 +97,7 @@ void RRScheduler::turnwait(int n) {
     p[0].tat = p[0].tat / n;
     p[0].wt = p[0].wt / n;
 }
-
+/*
 void RRScheduler::display(int n)
  {
     string tab = "";
@@ -113,4 +113,17 @@ void RRScheduler::display(int n)
     cout << "\nAverage Turn Around Time: " << p[0].tat;
     cout << "\nAverage Waiting Time: " << p[0].wt;
 }
+*/
+void RRScheduler::display(int n)
+{
+ int i; 
+ cout<<"\n\n-------------------TABLE----------------------------------\n";
+ printf("\nProcess\tAT\tBT\tFT\tTAT\t\tWT");
+ for(i=1;i<=n;i++)
+  printf("\nP%d\t%d\t%d\t%d\t%f\t%f",p[i].id,p[i].at,p[i].bt,p[i].ft,p[i].tat,p[i].wt);
+ cout<<"\n\n-----------------------------------------------------------";
+ printf("\nAverage Turn Around Time: %f",p[0].tat);
+ printf("\nAverage Waiting Time: %f\n",p[0].wt);
+}
+
 
