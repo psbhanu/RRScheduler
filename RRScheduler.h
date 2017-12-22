@@ -28,7 +28,7 @@ class RRScheduler {
     static process p[10], p1[10], temp;
     static queue<int> q1;
     
-    int execute();
+    static int execute();
     static int accept(int ch);
     static void turnwait(int n);
     static void display(int n);
