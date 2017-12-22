@@ -1,9 +1,8 @@
-
-/* 
- * File:   RRScheduler.h
- * Author: win
- *
- * Created on 19 December 2017, 12:06
+/*
+ * @Package RRScheduler
+ * @Version 1.0.0
+ * @Author Amira M.M
+ * @Licence GNU 2.0
  */
 
 #ifndef _RRSCHEDULER_H_ //it's 
