@@ -5,12 +5,14 @@
  * @Licence GNU 2.0
  */
 
-#ifndef _RRSCHEDULER_H_ //it's 
+#ifndef _RRSCHEDULER_H_ 
 #define _RRSCHEDULER_H_
+
 #include<iostream>
 #include <cstdlib>
 #include <queue>
 #include <cstdio>
+
 using namespace std;
 
 typedef struct process {
@@ -27,13 +29,13 @@ class RRScheduler {
     static queue<int> q1;
     
     int execute();
-    int accept(int ch);
-    void turnwait(int n);
-    void display(int n);
-    void ganttrr(int n);
-
+    static int accept(int ch);
+    static void turnwait(int n);
+    static void display(int n);
+    static void ganttrr(int n);
 };
-#endif /* RRSCHEDULER_H */
+
+#endif
 
 
 
