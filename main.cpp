@@ -1,24 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @Package RRScheduler App
+ * @Version 1.0.0
+ * @Author Amira M.M
+ * @Licence GNU 2.0
  */
 
-/* 
- * File:   main.cpp
- * Author: win
- *
- * Created on 19 December 2017, 12:02
- */
-
-//RRScheduler.h
-
-
-
-//#include "RRScheduler.h"
+#include "RRScheduler.h"
 
 using namespace std;
-
 
 int main() {
     //int i, n, ts, ch, j, x;
