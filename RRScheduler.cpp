@@ -16,10 +16,10 @@ int RRScheduler::execute() {
     int i, n, ts, ch, j, x;
     RRScheduler::p[0].tat = 0;
     RRScheduler::p[0].wt = 0;
-    n = accept(ch);
-    ganttrr(n);
-    turnwait(n);
-    display(n);
+    n = RRScheduler::accept(ch);
+    RRScheduler::ganttrr(n);
+    RRScheduler::turnwait(n);
+    RRScheduler::display(n);
     return 0;
 }
 
@@ -36,50 +36,49 @@ int RRScheduler::accept(int ch) {
     }
     for (i = 1; i <= n; i++) {
         cout << "enter the arrival time for process p: " << i;
-        cin >> p[i].at;
-        p[i].id = i;
+        cin >> RRScheduler::p[i].at;
+        RRScheduler::p[i].id = i;
     }
     for (i = 1; i <= n; i++) {
         cout << "enter the burst time for process p: " << i;
-        cin >> p[i].bt;
+        cin >> RRScheduler::p[i].bt;
     }
     for (i = 1; i <= n; i++) {
-        p1[i] = p[i];
+        RRScheduler::p1[i] = RRScheduler::p[i];
         return n;
     }
 }
 
 void RRScheduler::ganttrr(int n) {
     int i, ts, m, nextval, nextarr;
-    nextval = p1[1].at;
+    nextval = RRScheduler::p1[1].at;
     i = 1;
     cout << "enter time slice: ";
     cin >> ts;
-    for (i = 1; i <= n && p1[i].at <= nextval; i++)
+    for (i = 1; i <= n && RRScheduler::p1[i].at <= nextval; i++)
+        RRScheduler::q1.push(RRScheduler::p1[i].id);
 
-        q1.push(p1[i].id);
+    while (!RRScheduler::q1.empty()) {
+        m = RRScheduler::q1.front();
+        RRScheduler::q1.pop();
 
-    while (!q1.empty()) {
-        m = q1.front();
-        q1.pop();
-
-        if (p1[m].bt >= ts)
+        if (RRScheduler::p1[m].bt >= ts)
             nextval = nextval + ts;
         else
-            nextval = nextval + p1[m].bt;
-        if (p1[m].bt >= ts)
-            p1[m].bt = p1[m].bt - ts;
+            nextval = nextval + RRScheduler::p1[m].bt;
+        if (RRScheduler::p1[m].bt >= ts)
+            RRScheduler::p1[m].bt = RRScheduler::p1[m].bt - ts;
         else
-            p1[m].bt = 0;
-        while (i <= n && p1[i].at <= nextval) {
-            q1.push(p1[i].id);
+            RRScheduler::p1[m].bt = 0;
+        while (i <= n && RRScheduler::p1[i].at <= nextval) {
+            RRScheduler::q1.push(RRScheduler::p1[i].id);
             i++;
         }
 
-        if (p1[m].bt > 0)
-            q1.push(m);
-        if (p1[m].bt <= 0)
-            p[m].ft = nextval;
+        if (RRScheduler::p1[m].bt > 0)
+            RRScheduler::q1.push(m);
+        if (RRScheduler::p1[m].bt <= 0)
+            RRScheduler::p[m].ft = nextval;
     }
 
 }
@@ -88,14 +87,14 @@ void RRScheduler::turnwait(int n) {
 
     int i;
     for (i = 1; i <= n; i++) {
-        p[i].tat = p[i].ft - p[i].at;
-        p[i].wt = p[i].tat - p[i].bt;
-        p[0].tat = p[0].tat + p[i].tat;
-        p[0].wt = p[0].wt + p[i].wt;
+        RRScheduler::p[i].tat = RRScheduler::p[i].ft - RRScheduler::p[i].at;
+        RRScheduler::p[i].wt = RRScheduler::p[i].tat - RRScheduler::p[i].bt;
+        RRScheduler::p[0].tat = RRScheduler::p[0].tat + RRScheduler::p[i].tat;
+        RRScheduler::p[0].wt = RRScheduler::p[0].wt + RRScheduler::p[i].wt;
     }
 
-    p[0].tat = p[0].tat / n;
-    p[0].wt = p[0].wt / n;
+    RRScheduler::p[0].tat = RRScheduler::p[0].tat / n;
+    RRScheduler::p[0].wt = RRScheduler::p[0].wt / n;
 }
 /*
 void RRScheduler::display(int n)
@@ -120,10 +119,10 @@ void RRScheduler::display(int n)
  cout<<"\n\n-------------------TABLE----------------------------------\n";
  printf("\nProcess\tAT\tBT\tFT\tTAT\t\tWT");
  for(i=1;i<=n;i++)
-  printf("\nP%d\t%d\t%d\t%d\t%f\t%f",p[i].id,p[i].at,p[i].bt,p[i].ft,p[i].tat,p[i].wt);
+  printf("\nP%d\t%d\t%d\t%d\t%f\t%f", RRScheduler::p[i].id, RRScheduler::p[i].at, RRScheduler::p[i].bt, RRScheduler::p[i].ft, RRScheduler::p[i].tat, RRScheduler::p[i].wt);
  cout<<"\n\n-----------------------------------------------------------";
- printf("\nAverage Turn Around Time: %f",p[0].tat);
- printf("\nAverage Waiting Time: %f\n",p[0].wt);
+ printf("\nAverage Turn Around Time: %f", RRScheduler::p[0].tat);
+ printf("\nAverage Waiting Time: %f\n", RRScheduler::p[0].wt);
 }
 
 
